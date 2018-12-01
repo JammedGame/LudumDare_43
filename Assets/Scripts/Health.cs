@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
 
-
-   [SerializeField] private Healthbar hb;
-   [SerializeField] public float startingHealth = 1;
+	public Slider healthbar;
+    public float startingHealth = 100;
 	public float currentHealth;
 	public bool isDead;
 
@@ -14,12 +14,12 @@ public class Health : MonoBehaviour {
 	private void Awake() {
 		isDead = false;
 		currentHealth = startingHealth;
-        hb.setHealth(currentHealth);
+		UpdateHealthbar();
 	}
 
 	public void TakeDamage(float amount) {
         currentHealth -= amount;
-        hb.setHealth(currentHealth);
+		UpdateHealthbar();
         if (currentHealth <= 0 && !isDead) {
             Death();
         }
@@ -27,7 +27,7 @@ public class Health : MonoBehaviour {
 
 	public void healHealth(float amount) {
         currentHealth += amount;
-        hb.setHealth(currentHealth);
+		UpdateHealthbar();
         if (currentHealth > startingHealth) {
 			currentHealth = startingHealth;
 		}
@@ -37,5 +37,7 @@ public class Health : MonoBehaviour {
 		isDead = true;
 	}
 
-   
+	void UpdateHealthbar() {
+		healthbar.value = currentHealth / startingHealth;
+	}
 }
