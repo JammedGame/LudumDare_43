@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     bool doubleJumpAllowed = false;
     bool onTheGround = false;
     bool glide = false;
+    bool isJumping = false;
 
     // Use this for initialization
     void Start()
@@ -28,22 +29,19 @@ public class PlayerMovement : MonoBehaviour {
     void Update()
     {
 
-        if (rb.velocity.y == 0)
+        if (rb.velocity.y == 0) {
             onTheGround = true;
-        else
-            onTheGround = false;
-
-        if (onTheGround)
             doubleJumpAllowed = true;
-
-        if (onTheGround && Input.GetButtonDown("Jump"))
-        {
-            Jump();
+        } else {
+            onTheGround = false;
         }
-        else if (doubleJumpAllowed && Input.GetButtonDown("Jump"))
+        
+        if (doubleJumpAllowed && Input.GetButtonDown("Jump"))
         {
-            Jump();
-            doubleJumpAllowed = false;
+            isJumping = true;
+            if (!onTheGround && doubleJumpAllowed) {
+                doubleJumpAllowed = false;
+            }
         }
 
         dirX = Input.GetAxis("Horizontal") * moveSpeed;
@@ -59,16 +57,19 @@ public class PlayerMovement : MonoBehaviour {
 
     }
 
-    void FixedUpdate()
-    {
-        if (glide && rb.velocity.y < 0)
+    void FixedUpdate() {
+        if (isJumping) {
+            Jump();
+            isJumping = false;
+        }
+
+        if (glide && rb.velocity.y < 0) {
             rb.gravityScale = 0.6f;
-        else
+        } else {
             rb.gravityScale = 3;
-
-
+        }
         
-            rb.velocity = new Vector2(dirX, rb.velocity.y);
+        rb.velocity = new Vector2(dirX, rb.velocity.y);
     }
 
     void Jump()
