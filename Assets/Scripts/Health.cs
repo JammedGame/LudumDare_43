@@ -4,25 +4,31 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-	[SerializeField] public int startingHealth = 100;
-	public int currentHealth;
+
+   [SerializeField] private Healthbar hb;
+   [SerializeField] public float startingHealth = 1;
+	public float currentHealth;
 	public bool isDead;
+
 
 	private void Awake() {
 		isDead = false;
 		currentHealth = startingHealth;
+        hb.setHealth(currentHealth);
 	}
 
-	public void TakeDamage(int amount) {
+	public void TakeDamage(float amount) {
         currentHealth -= amount;
-		if (currentHealth <= 0 && !isDead) {
+        hb.setHealth(currentHealth);
+        if (currentHealth <= 0 && !isDead) {
             Death();
         }
 	}
 
-	public void healHealth(int amount) {
+	public void healHealth(float amount) {
         currentHealth += amount;
-		if (currentHealth > startingHealth) {
+        hb.setHealth(currentHealth);
+        if (currentHealth > startingHealth) {
 			currentHealth = startingHealth;
 		}
 	}
@@ -30,4 +36,6 @@ public class Health : MonoBehaviour {
 	void Death() {
 		isDead = true;
 	}
+
+   
 }
