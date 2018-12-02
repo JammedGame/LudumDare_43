@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 60
-  jumpForce: 600
+  jumpForce: 700
   moveSpeed: 5
   jumpsAllowed: 2
   animator: {fileID: 0}
