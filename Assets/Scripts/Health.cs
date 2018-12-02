@@ -33,8 +33,10 @@ public class Health : MonoBehaviour {
 		}
 	}
 
-	void Death() {
+	public void Death() {
 		isDead = true;
+		// TODO: Temporary until respwn time is implemented
+		if (gameObject.tag == "Enemy") Destroy(gameObject);
 	}
 
 	void UpdateHealthbar() {
