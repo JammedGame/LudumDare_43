@@ -37,18 +37,24 @@ public class Enemy : MonoBehaviour {
 		Collider2D[] result =  new Collider2D[10];
 		int numOfColiders = boxCollider.OverlapCollider(filter, result);
 
-		LayerMask playerMask = LayerMask.GetMask("Player", "Enemy");
-		RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.right * dirX, 10f, playerMask);
-		Debug.DrawRay(transform.position, Vector2.right * dirX, Color.green);
+		LayerMask characterMask = LayerMask.GetMask("Player", "Enemy");
+		RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + new Vector3(0.7f * dirX, 0, 0), Vector2.right * dirX, 10f, characterMask);
+		Debug.DrawRay(transform.position + new Vector3(0.7f * dirX, 0, 0), Vector2.right * dirX, Color.green); // TODO: Delete DrawRay
 		
-
+		bool found_player = false;
 		if (hits.Any(hit => hit.collider.gameObject.CompareTag("Player"))) {
-			moveSpeed = 0f;
-			Debug.Log("Got Player");
+			found_player = true;
+			if (!hits[0].collider.gameObject.CompareTag("Player")) {
+				moveSpeed = 0f;
+			}
 		} else {
 			moveSpeed = defaultMoveSpeed;
 		}
-		doFlip = numOfColiders == 0 || result.Any(collider => collider && collider.gameObject.CompareTag("Enemy"));
+		doFlip = (
+			!found_player && 
+			(numOfColiders == 0 || 
+			result.Any(collider => collider && collider.gameObject.CompareTag("Enemy")))			
+		);
 		animator.SetFloat("Speed", moveSpeed);
 	}
 
