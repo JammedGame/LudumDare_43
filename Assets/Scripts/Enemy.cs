@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour {
 	private bool doFlip = false;
 	private bool collisionEnter = false;
 
+	public Animator animator;
+
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour {
 			moveSpeed = defaultMoveSpeed;
 		}
 		doFlip = numOfColiders == 0 || result.Any(collider => collider && collider.gameObject.CompareTag("Enemy"));
+		animator.SetFloat("Speed", moveSpeed);
 	}
 
 	void FixedUpdate() {

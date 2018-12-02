@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	public int jumpsAllowed = 2;
 
+    public Animator animator;
+
     float dirX;
+
+    private bool doFlip = false;
+    private bool m_FacingRight = false;
 
     Rigidbody2D rb;
 
@@ -42,9 +48,15 @@ public class PlayerMovement : MonoBehaviour {
         {
             glide = false;
         }
+        if (dirX > 0 && !m_FacingRight) {
+            doFlip = true;
+        } else if (dirX < 0 && m_FacingRight) {
+            doFlip = true;
+        }
     }
 
     void FixedUpdate() {
+        if (doFlip) Flip();
         if (isJumping) {
 	        Jump();
             isJumping = false;
@@ -57,6 +69,12 @@ public class PlayerMovement : MonoBehaviour {
         }
         
         rb.velocity = new Vector2(dirX, rb.velocity.y);
+    }
+
+    void Flip() {
+        m_FacingRight = !m_FacingRight;
+		transform.Rotate(0f, 180f, 0f);
+        doFlip = false;
     }
 
     void Jump()
