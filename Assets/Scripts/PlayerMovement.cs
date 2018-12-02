@@ -81,6 +81,7 @@ public class PlayerMovement : MonoBehaviour {
         if (!isAttacking && Input.GetButtonDown("Fire3")) {
             doAttack = true;
         }
+		animator.SetFloat("Speed", dirX);
     }
 
     void FixedUpdate() {
@@ -98,7 +99,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         
-		if (isAttacking && animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > .9) {
+		if (isAttacking && animator.GetCurrentAnimatorStateInfo(0).IsName("Shaman_Attack") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > .9) {
 			Attack();
 		}
 
@@ -137,7 +138,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		jumpCount = 0;
+        BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+		ContactFilter2D filter = new ContactFilter2D();
+		LayerMask mask = LayerMask.GetMask("Tiles");
+		filter.SetLayerMask(mask);
+		filter.useLayerMask = true;
+		Collider2D[] resultsBoxCollider =  new Collider2D[1];
+		int tiles = boxCollider.OverlapCollider(filter, resultsBoxCollider);
+        if (tiles > 0) jumpCount = 0;
 	}
 
     void TakeDamage(float damageAmount) {
