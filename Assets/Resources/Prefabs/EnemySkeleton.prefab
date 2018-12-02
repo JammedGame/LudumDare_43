@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 95507425579585762}
   - component: {fileID: 114929955957004992}
   - component: {fileID: 70649236076474952}
+  - component: {fileID: 68891362863367534}
   m_Layer: 9
   m_Name: EnemySkeleton
   m_TagString: Enemy
@@ -155,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1824408022922322}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000021418573}
-  m_LocalPosition: {x: 0.908, y: 2.8869998, z: 0}
+  m_LocalPosition: {x: -3.06, y: 2.8869998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224627461224543498}
@@ -207,6 +208,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1917491, y: 0.88918114}
   m_EdgeRadius: 0
+--- !u!68 &68891362863367534
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1824408022922322}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.9976078, y: -0.12495923}
+  - {x: -0.99683356, y: -0.6718075}
 --- !u!70 &70649236076474952
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -403,8 +421,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   defaultMoveSpeed: 3
-  boxCollider: {fileID: 61446802935628746}
+  boxColliderTiles: {fileID: 0}
+  edgeColliderWallEnemy: {fileID: 0}
   animator: {fileID: 95507425579585762}
+  attackSpeed: 3
 --- !u!114 &114929955957004992
 MonoBehaviour:
   m_ObjectHideFlags: 1

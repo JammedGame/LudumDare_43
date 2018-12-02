@@ -18,6 +18,9 @@ public class Health : MonoBehaviour {
 	}
 
 	public void TakeDamage(float amount) {
+		// Debug.Log("Took Damage");
+		// Debug.Log(amount);
+		// Debug.Log(gameObject.tag);
         currentHealth -= amount;
 		UpdateHealthbar();
         if (currentHealth <= 0 && !isDead) {
