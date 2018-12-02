@@ -52,12 +52,24 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() {
         timeRemainingToAttack -= Time.deltaTime;
+        if (rb.velocity.y < -1) {
+            animator.SetBool("Fall", true);
+            animator.SetBool("Jump", false);
+        } else if (rb.velocity.y >= -1 && rb.velocity.y <= 1) {
+            animator.SetBool("Fall", false);
+            animator.SetBool("Jump", false);
+        } else if (rb.velocity.y > 1) {
+            animator.SetBool("Jump", true);
+            animator.SetBool("Fall", false);
+        }
 
         if (Input.GetButtonDown("Fire2")) {
+            animator.SetBool("Attack", true);
             fire = true;
         }
         if (jumpCount < jumpsAllowed && Input.GetButtonDown("Jump"))
         {
+            // animator.SetBool("Jump", true);
             isJumping = true;
 			jumpCount++;
         }
@@ -81,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
         if (!isAttacking && Input.GetButtonDown("Fire3")) {
             doAttack = true;
         }
-		animator.SetFloat("Speed", dirX);
+		animator.SetFloat("Speed", Mathf.Abs(dirX));
     }
 
     void FixedUpdate() {
@@ -89,6 +101,7 @@ public class PlayerMovement : MonoBehaviour {
         if (doFlip) Flip();
         if (isJumping) {
 	        Jump();
+            // animator.SetBool("Jump", false);
             isJumping = false;
         }
 
@@ -104,10 +117,12 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
         if (glide && rb.velocity.y < 0) {
+            animator.SetBool("Glide", true);
             rb.gravityScale = 0.6f;
             TakeDamage(glideCostPerSecond * Time.deltaTime);
         } else {
             rb.gravityScale = 3;
+            animator.SetBool("Glide", false);
         }
         
         rb.velocity = new Vector2(dirX, rb.velocity.y);
@@ -123,6 +138,8 @@ public class PlayerMovement : MonoBehaviour {
         TakeDamage(rangeAttackCost);
 		bullet.GetComponent<Rigidbody2D>().AddForce(fireSpeed * bullet.transform.right);
         fire = false;
+        
+        animator.SetBool("Attack", false);
     }
 
     void Flip() {
