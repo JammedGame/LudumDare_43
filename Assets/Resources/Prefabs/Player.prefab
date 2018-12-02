@@ -92,6 +92,8 @@ GameObject:
   - component: {fileID: 61230158605401230}
   - component: {fileID: 114305696726973970}
   - component: {fileID: 70182017112221538}
+  - component: {fileID: 68798879647500854}
+  - component: {fileID: 95665092581036870}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -320,6 +322,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.24999952}
   m_EdgeRadius: 0
+--- !u!68 &68798879647500854
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388267117388712}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.80785227, y: -0.09538841}
+  - {x: -0.8014722, y: -0.5373497}
 --- !u!70 &70182017112221538
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -335,6 +354,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0.029743671, y: -0.008494377}
   m_Size: {x: 0.7167616, y: 1.7111855}
   m_Direction: 0
+--- !u!95 &95665092581036870
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388267117388712}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca157ef8b6955884aa0cc54372805030, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114064966720245278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -672,8 +709,9 @@ MonoBehaviour:
   clearScreenCost: 49
   firePosition: {fileID: 1740610145342114}
   jumpsAllowed: 2
-  animator: {fileID: 0}
+  animator: {fileID: 95665092581036870}
   jumpCount: 0
+  attackSpeed: 1
 --- !u!212 &212377989487257694
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -106,11 +106,9 @@ public class Enemy : MonoBehaviour {
 
 		if (startAttack && animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > .9) {
 			Attack();
-			
 		}
 
 		if (inRangeOfPlayer && timeRemainingToAttack <= 0f) {
-			Debug.LogError("StartAttacking");
 			timeRemainingToAttack = attackSpeed;
 			if (inRangeOfPlayer) StartAttack();
 		}
