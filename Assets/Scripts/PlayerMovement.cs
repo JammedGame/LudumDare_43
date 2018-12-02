@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour {
     bool glide = false;
     bool isJumping = false;
 
+    public GameObject spotLight;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -69,6 +71,9 @@ public class PlayerMovement : MonoBehaviour {
         }
         
         rb.velocity = new Vector2(dirX, rb.velocity.y);
+        Vector3 position = transform.position;
+        position.z = spotLight.transform.position.z;
+        spotLight.transform.position = position;
     }
 
     void Flip() {
