@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour {
     public float rangeAttackCost = 24f;
     public float clearScreenCost = 49f;
 
+    public GameObject clearScreenCanvas;
+    private float clearScreenTimeout = 0f;
+
     private float glideTime = 0f;
 
     public GameObject firePosition;
@@ -36,13 +39,15 @@ public class PlayerMovement : MonoBehaviour {
     public int jumpCount = 0;
     bool glide = false;
     bool isJumping = false;
-
+    bool clearScreen = false;
+    
 	private bool doAttack = false;
 	private bool isAttacking = false;
     public float attackSpeed = 1f; 
 	private float timeRemainingToAttack = 0f;
 
     private EdgeCollider2D edgeCollider;
+    public Camera camera;
 
     void Start()
     {
@@ -66,6 +71,9 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonDown("Fire2")) {
             animator.SetBool("Attack", true);
             fire = true;
+        }
+        if (Input.GetButtonDown("ClearScreen")) {
+            clearScreen = true;
         }
         if (jumpCount < jumpsAllowed && Input.GetButtonDown("Jump"))
         {
@@ -98,6 +106,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate() {
         if (fire) Fire();
+        if (clearScreen) ClearScreen();
         if (doFlip) Flip();
         if (isJumping) {
 	        Jump();
@@ -124,10 +133,33 @@ public class PlayerMovement : MonoBehaviour {
             rb.gravityScale = 3;
             animator.SetBool("Glide", false);
         }
+
+        if (clearScreenTimeout > 0) {
+            clearScreenTimeout -= Time.deltaTime;
+        } else {
+            clearScreenCanvas.SetActive(false);
+        }
         
         rb.velocity = new Vector2(dirX, rb.velocity.y);
 
 
+    }
+
+    private void ClearScreen()
+    {
+        
+        GameObject[] enemies;
+        clearScreenCanvas.SetActive(true);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies) {
+            Vector3 point = camera.WorldToViewportPoint(enemy.transform.position);
+            if (point.x > 0 && point.x < 1 && point.y > 0 && point.y < 1) {
+                enemy.GetComponent<Health>().Death();
+            }
+        }
+        TakeDamage(clearScreenCost);
+        clearScreenTimeout = 0.4f;
+        clearScreen = false;
     }
 
     private void Fire() {
