@@ -4179,7 +4179,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4199471807219592, guid: 50dc956558d75e349a76b4881984d0fd, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224869550447184202, guid: 50dc956558d75e349a76b4881984d0fd,
         type: 2}
@@ -4247,35 +4247,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4806424806419576, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 4806424806419576, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4806424806419576, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4806424806419576, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4806424806419576, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4806424806419576, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 114943687463607930, guid: 902b76026feefcc4a9c15bbeb93301db,
-        type: 2}
-      propertyPath: fireSpeed
-      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
@@ -4743,7 +4714,7 @@ Transform:
   m_Children:
   - {fileID: 1916829307}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087974396
 GameObject:
