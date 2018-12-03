@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Fire() {
-		var bullet = Instantiate(Resources.Load("Prefabs/Bullet")) as GameObject;
+		var bullet = Instantiate(Resources.Load("Prefabs/SwordProjectile")) as GameObject;
 		
 		bullet.transform.position = firePosition.transform.position;
 		bullet.transform.forward = firePosition.transform.forward;
