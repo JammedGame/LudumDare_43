@@ -4902,6 +4902,26 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114943687463607930, guid: 902b76026feefcc4a9c15bbeb93301db,
+        type: 2}
+      propertyPath: canClearScreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943687463607930, guid: 902b76026feefcc4a9c15bbeb93301db,
+        type: 2}
+      propertyPath: canGlide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943687463607930, guid: 902b76026feefcc4a9c15bbeb93301db,
+        type: 2}
+      propertyPath: canFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943687463607930, guid: 902b76026feefcc4a9c15bbeb93301db,
+        type: 2}
+      propertyPath: jumpsAllowed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
   m_IsPrefabAsset: 0
