@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (glide && rb.velocity.y < 0) {
             animator.SetBool("Glide", true);
-            rb.gravityScale = 0.6f;
+            rb.gravityScale = 0.3f;
             TakeDamage(glideCostPerSecond * Time.deltaTime);
         } else {
             rb.gravityScale = 3;
