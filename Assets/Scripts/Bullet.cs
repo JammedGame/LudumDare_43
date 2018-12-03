@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Enemy") {
 			other.gameObject.GetComponent<Health>().Death();
-		} else {
+		} else if (other.isTrigger == false) {
 			Destroy(gameObject);
 		}
 	}

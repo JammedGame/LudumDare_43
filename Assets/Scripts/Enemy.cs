@@ -75,16 +75,14 @@ public class Enemy : MonoBehaviour {
 			moveSpeed = defaultMoveSpeed;
 		}
 		doFlip = (
-			!found_player && 
-			(
-				walkingTiles == 0 ||
+			walkingTiles == 0 || (!found_player && (
 				resultsEdgeCollider.Any(collider => 
 					collider && (
 						collider.gameObject.CompareTag("Enemy") || 
 						collider.gameObject.CompareTag("Tiles")
 					)
 				)
-			)			
+			))
 		);
 		animator.SetFloat("Speed", moveSpeed);
 	}
