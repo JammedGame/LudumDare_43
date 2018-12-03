@@ -12,6 +12,7 @@ public class Health : MonoBehaviour {
 
 	public float reviveTime = 30f;
 	private float timeToRevive;
+	private float timeToFinishDying;
 
 	private bool animationStart = false;
 	private bool animationComplete = false;
@@ -33,6 +34,15 @@ public class Health : MonoBehaviour {
 				gameObject.GetComponent<Animator>().SetFloat("Speed", 0f);
 				gameObject.GetComponent<Animator>().SetBool("Attack", false);
 				gameObject.GetComponent<Animator>().SetBool("Dead", false);
+			}
+		}
+		if (isDead && gameObject.tag == "Player") {
+			timeToFinishDying -= Time.deltaTime;
+			if (timeToFinishDying < 1f) {
+				gameObject.GetComponent<Animator>().SetBool("Dead", false); // Stop Player Death Animation
+			}
+			if (timeToFinishDying <= 0) {
+				gameManager.GameOver();
 			}
 		}
 		
@@ -71,7 +81,8 @@ public class Health : MonoBehaviour {
 			gameObject.GetComponent<Rigidbody2D>().simulated = false; // Disable Rigidbody also disabling all colliders
 			gameObject.GetComponentInChildren<Canvas>().enabled = false; // Disable Healtbar
 		} else if (gameObject.tag == "Player") {
-			gameManager.GameOver();
+			gameObject.GetComponent<Animator>().SetBool("Dead", true); // Trigger Animation
+			timeToFinishDying = 1.6f;
 		}
 	}
 
