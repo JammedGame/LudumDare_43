@@ -78,6 +78,7 @@ public class Health : MonoBehaviour {
 		if (gameObject.tag == "Enemy") {
 			timeToRevive = reviveTime;
 			gameObject.GetComponent<Animator>().SetBool("Dead", true); // Trigger Animation
+			FindObjectOfType<AudioManager>().Play("SkeletonDie");
 			gameObject.GetComponent<Rigidbody2D>().simulated = false; // Disable Rigidbody also disabling all colliders
 			gameObject.GetComponentInChildren<Canvas>().enabled = false; // Disable Healtbar
 		} else if (gameObject.tag == "Player") {
