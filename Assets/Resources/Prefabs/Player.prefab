@@ -441,6 +441,7 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   isDead: 0
+  reviveTime: 3
 --- !u!114 &114350929381503702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -713,7 +714,9 @@ MonoBehaviour:
   animator: {fileID: 95665092581036870}
   jumpCount: 0
   attackSpeed: 1
+  dealDamage: 50
   camera: {fileID: 0}
+  animStart: 0
 --- !u!212 &212377989487257694
 SpriteRenderer:
   m_ObjectHideFlags: 1

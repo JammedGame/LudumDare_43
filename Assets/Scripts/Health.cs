@@ -16,11 +16,13 @@ public class Health : MonoBehaviour {
 	private bool animationStart = false;
 	private bool animationComplete = false;
 
+	private GameManager gameManager;
 
 	private void Awake() {
 		isDead = false;
 		currentHealth = startingHealth;
 		UpdateHealthbar();
+		gameManager = FindObjectOfType<GameManager>();
 	}
 
 	private void Update() {
@@ -68,6 +70,8 @@ public class Health : MonoBehaviour {
 			gameObject.GetComponent<Animator>().SetBool("Dead", true); // Trigger Animation
 			gameObject.GetComponent<Rigidbody2D>().simulated = false; // Disable Rigidbody also disabling all colliders
 			gameObject.GetComponentInChildren<Canvas>().enabled = false; // Disable Healtbar
+		} else if (gameObject.tag == "Player") {
+			gameManager.GameOver();
 		}
 	}
 
