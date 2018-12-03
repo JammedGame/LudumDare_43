@@ -10,6 +10,12 @@ public class Health : MonoBehaviour {
 	public float currentHealth;
 	public bool isDead;
 
+	public float reviveTime = 30f;
+	private float timeToRevive;
+
+	private bool animationStart = false;
+	private bool animationComplete = false;
+
 
 	private void Awake() {
 		isDead = false;
@@ -17,15 +23,34 @@ public class Health : MonoBehaviour {
 		UpdateHealthbar();
 	}
 
+	private void Update() {
+		if (isDead && gameObject.tag == "Enemy") {
+			timeToRevive -= Time.deltaTime;
+			if (timeToRevive <= 0) {
+				animationStart = true;
+				gameObject.GetComponent<Animator>().SetFloat("Speed", 0f);
+				gameObject.GetComponent<Animator>().SetBool("Attack", false);
+				gameObject.GetComponent<Animator>().SetBool("Dead", false);
+			}
+		}
+		
+		if (animationStart && animationComplete) {
+			animationStart = false;
+			animationComplete = false;
+			Revive();
+		}
+		if (
+			animationStart &&
+			gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
+		) {
+			animationComplete = true;
+		}
+	}
+
 	public void TakeDamage(float amount) {
-		// Debug.Log("Took Damage");
-		// Debug.Log(amount);
-		// Debug.Log(gameObject.tag);
         currentHealth -= amount;
 		UpdateHealthbar();
-        if (currentHealth <= 0 && !isDead) {
-            Death();
-        }
+        if (currentHealth <= 0 && !isDead) Death();
 	}
 
 	public void healHealth(float amount) {
@@ -38,8 +63,20 @@ public class Health : MonoBehaviour {
 
 	public void Death() {
 		isDead = true;
-		// TODO: Temporary until respwn time is implemented
-		if (gameObject.tag == "Enemy") Destroy(gameObject);
+		if (gameObject.tag == "Enemy") {
+			timeToRevive = reviveTime;
+			gameObject.GetComponent<Animator>().SetBool("Dead", true); // Trigger Animation
+			gameObject.GetComponent<Rigidbody2D>().simulated = false; // Disable Rigidbody also disabling all colliders
+			gameObject.GetComponentInChildren<Canvas>().enabled = false; // Disable Healtbar
+		}
+	}
+
+	private void Revive() {
+		isDead = false;
+		currentHealth = startingHealth;
+		UpdateHealthbar();
+		gameObject.GetComponent<Rigidbody2D>().simulated = true;
+		gameObject.GetComponentInChildren<Canvas>().enabled = true;
 	}
 
 	void UpdateHealthbar() {

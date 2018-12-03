@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour {
 	public float attackSpeed = 3f;
 	private float timeRemainingToAttack = 0f;
 
+	public float dealDamage = 5f;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -85,18 +87,6 @@ public class Enemy : MonoBehaviour {
 			)			
 		);
 		animator.SetFloat("Speed", moveSpeed);
-		
-
-
-		
-
-
-
-
-
-
-
-
 	}
 
 	void FixedUpdate() {
@@ -127,10 +117,7 @@ public class Enemy : MonoBehaviour {
 
 	private void Attack() {
 		animator.SetBool("Attack", false);
-		if (inRangeOfPlayer) playerHealth.TakeDamage(20f);
+		if (inRangeOfPlayer) playerHealth.TakeDamage(dealDamage);
 		startAttack = false;
-		
-		
-		
 	}
 }

@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour {
 	private bool isAttacking = false;
     public float attackSpeed = 1f; 
 	private float timeRemainingToAttack = 0f;
+    public float dealDamage = 50f;
 
     private EdgeCollider2D edgeCollider;
     public Camera camera;
@@ -213,7 +214,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
         if (enemies > 0) {
-            resultsEdgeCollider[0].gameObject.GetComponent<Health>().TakeDamage(20f);
+            resultsEdgeCollider[0].gameObject.GetComponent<Health>().TakeDamage(dealDamage);
         }
         isAttacking = false;
     }
