@@ -352,7 +352,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.023542404, y: -0.3866043}
-  m_Size: {x: 0.9202791, y: 1.8971415}
+  m_Size: {x: 0.81598186, y: 1.8971415}
   m_Direction: 0
 --- !u!95 &95665092581036870
 Animator:
@@ -707,11 +707,13 @@ MonoBehaviour:
   glideCostPerSecond: 2
   rangeAttackCost: 24
   clearScreenCost: 49
+  clearScreenCanvas: {fileID: 0}
   firePosition: {fileID: 1740610145342114}
   jumpsAllowed: 2
   animator: {fileID: 95665092581036870}
   jumpCount: 0
   attackSpeed: 1
+  camera: {fileID: 0}
 --- !u!212 &212377989487257694
 SpriteRenderer:
   m_ObjectHideFlags: 1
