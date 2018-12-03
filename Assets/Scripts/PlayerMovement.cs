@@ -45,9 +45,13 @@ public class PlayerMovement : MonoBehaviour {
 	private bool isAttacking = false;
     public float attackSpeed = 1f; 
 	private float timeRemainingToAttack = 0f;
+    public float dealDamage = 50f;
 
     private EdgeCollider2D edgeCollider;
     public Camera camera;
+    private float clearAnimTime = 0f;
+
+    public bool animStart = false;
 
     void Start()
     {
@@ -106,7 +110,20 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate() {
         if (fire) Fire();
-        if (clearScreen) ClearScreen();
+        if (clearScreen && !animStart) {
+            animator.SetBool("Clear", true);
+            clearAnimTime = 0.5f;
+            animStart = true;
+        }
+
+        if (clearScreen && animStart) {
+            if (clearAnimTime > 0) {
+                clearAnimTime -= Time.deltaTime;
+            } else {
+                animStart = false;
+                ClearScreen();
+            }
+        }
         if (doFlip) Flip();
         if (isJumping) {
 	        Jump();
@@ -147,7 +164,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void ClearScreen()
     {
-        
         GameObject[] enemies;
         clearScreenCanvas.SetActive(true);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -160,6 +176,8 @@ public class PlayerMovement : MonoBehaviour {
         TakeDamage(clearScreenCost);
         clearScreenTimeout = 0.4f;
         clearScreen = false;
+        animator.SetBool("Clear", false);
+        
     }
 
     private void Fire() {
@@ -213,7 +231,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
         if (enemies > 0) {
-            resultsEdgeCollider[0].gameObject.GetComponent<Health>().TakeDamage(20f);
+            resultsEdgeCollider[0].gameObject.GetComponent<Health>().TakeDamage(dealDamage);
         }
         isAttacking = false;
     }
