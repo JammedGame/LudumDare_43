@@ -11,6 +11,13 @@ public class PlayerMovement : MonoBehaviour {
 	public float moveSpeed = 5f;
 	public float fireSpeed = 600f;
 
+    //skill unlocks
+
+   
+    public bool canFire = false;
+    public bool canClearScreen = false;
+    public bool canGlide = false;
+
     // Skill costs
     public float doubleJumpCost = 3.5f;
     public float glideCostPerSecond = 2f;
@@ -24,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public GameObject firePosition;
 
-	public int jumpsAllowed = 2;
+	public int jumpsAllowed = 1;
 
     public Animator animator;
 
@@ -72,7 +79,7 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetBool("Fall", false);
         }
 
-        if (Input.GetButtonDown("Fire2")) {
+        if (Input.GetButtonDown("Fire2") && canFire) {
             animator.SetBool("Attack", true);
             fire = true;
         }
@@ -82,8 +89,11 @@ public class PlayerMovement : MonoBehaviour {
         if (jumpCount < jumpsAllowed && Input.GetButtonDown("Jump"))
         {
             // animator.SetBool("Jump", true);
-            isJumping = true;
-			jumpCount++;
+         
+          
+                isJumping = true;
+                jumpCount++;
+            
         }
 
         dirX = Input.GetAxis("Horizontal") * moveSpeed;
@@ -110,13 +120,13 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate() {
         if (fire) Fire();
-        if (clearScreen && !animStart) {
+        if (clearScreen && !animStart && canClearScreen) {
             animator.SetBool("Clear", true);
             clearAnimTime = 0.5f;
             animStart = true;
         }
 
-        if (clearScreen && animStart) {
+        if (clearScreen && animStart && canClearScreen) {
             if (clearAnimTime > 0) {
                 clearAnimTime -= Time.deltaTime;
             } else {
@@ -142,7 +152,7 @@ public class PlayerMovement : MonoBehaviour {
 			Attack();
 		}
 
-        if (glide && rb.velocity.y < 0) {
+        if (glide && canGlide && rb.velocity.y < 0) {
             animator.SetBool("Glide", true);
             rb.gravityScale = 0.3f;
             TakeDamage(glideCostPerSecond * Time.deltaTime);

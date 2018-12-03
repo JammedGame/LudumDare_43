@@ -439,7 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 114398681909604028}
   startingHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   isDead: 0
   reviveTime: 3
 --- !u!114 &114350929381503702
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.845
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -704,13 +704,16 @@ MonoBehaviour:
   jumpForce: 700
   moveSpeed: 5
   fireSpeed: 600
+  canFire: 0
+  canClearScreen: 0
+  canGlide: 0
   doubleJumpCost: 3.5
   glideCostPerSecond: 2
   rangeAttackCost: 24
   clearScreenCost: 49
   clearScreenCanvas: {fileID: 0}
   firePosition: {fileID: 1740610145342114}
-  jumpsAllowed: 2
+  jumpsAllowed: 1
   animator: {fileID: 95665092581036870}
   jumpCount: 0
   attackSpeed: 1
