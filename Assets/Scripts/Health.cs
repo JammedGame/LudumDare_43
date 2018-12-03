@@ -74,15 +74,17 @@ public class Health : MonoBehaviour {
 	}
 
 	public void Death() {
-		isDead = true;
 		if (gameObject.tag == "Enemy") {
+			if (!isDead) FindObjectOfType<AudioManager>().Play("SkeletonDie");
+			isDead = true;
 			timeToRevive = reviveTime;
 			gameObject.GetComponent<Animator>().SetBool("Dead", true); // Trigger Animation
-			FindObjectOfType<AudioManager>().Play("SkeletonDie");
 			gameObject.GetComponent<Rigidbody2D>().simulated = false; // Disable Rigidbody also disabling all colliders
 			gameObject.GetComponentInChildren<Canvas>().enabled = false; // Disable Healtbar
 		} else if (gameObject.tag == "Player") {
+			isDead = true;
 			gameObject.GetComponent<Animator>().SetBool("Dead", true); // Trigger Animation
+			FindObjectOfType<AudioManager>().Play("PlayerDie");
 			timeToFinishDying = 1.6f;
 		}
 	}
@@ -93,6 +95,7 @@ public class Health : MonoBehaviour {
 		UpdateHealthbar();
 		gameObject.GetComponent<Rigidbody2D>().simulated = true;
 		gameObject.GetComponentInChildren<Canvas>().enabled = true;
+		FindObjectOfType<AudioManager>().Play("SkeletonRespawn");
 	}
 
 	void UpdateHealthbar() {

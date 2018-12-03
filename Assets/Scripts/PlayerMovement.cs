@@ -183,6 +183,7 @@ public class PlayerMovement : MonoBehaviour {
                 enemy.GetComponent<Health>().Death();
             }
         }
+        FindObjectOfType<AudioManager>().Play("PlayerClearScreen");
         TakeDamage(clearScreenCost);
         clearScreenTimeout = 0.4f;
         clearScreen = false;
@@ -192,6 +193,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Fire() {
 		var bullet = Instantiate(Resources.Load("Prefabs/SwordProjectile")) as GameObject;
+        FindObjectOfType<AudioManager>().Play("PlayerRangeAttack");
 		
 		bullet.transform.position = firePosition.transform.position;
 		bullet.transform.forward = firePosition.transform.forward;
@@ -242,6 +244,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (enemies > 0) {
             resultsEdgeCollider[0].gameObject.GetComponent<Health>().TakeDamage(dealDamage);
+			FindObjectOfType<AudioManager>().Play("PlayerAttack");
         }
         isAttacking = false;
     }

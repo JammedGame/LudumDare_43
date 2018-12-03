@@ -115,7 +115,10 @@ public class Enemy : MonoBehaviour {
 
 	private void Attack() {
 		animator.SetBool("Attack", false);
-		if (inRangeOfPlayer) playerHealth.TakeDamage(dealDamage);
+		if (inRangeOfPlayer) {
+			playerHealth.TakeDamage(dealDamage);
+			FindObjectOfType<AudioManager>().Play("PlayerAttack");
+		}
 		startAttack = false;
 	}
 }

@@ -53,14 +53,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Theme
-    clip: {fileID: 8300000, guid: 23d330dfe95aec6478be579b7965195f, type: 3}
+    clip: {fileID: 8300000, guid: d2b67c7eda40a4e4895d1ad51c90f91f, type: 3}
     volume: 0.3
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: SkeletonDie
-    clip: {fileID: 8300000, guid: 99306fe0f97d7af40bcea64ce1c5d188, type: 3}
+    clip: {fileID: 8300000, guid: 73e34784ca47ca246914542ed2a251bd, type: 3}
     volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerAttack
+    clip: {fileID: 8300000, guid: 2ec28ed32f8817b45a8e5be9c54bf96d, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SkeletonRespawn
+    clip: {fileID: 8300000, guid: ec4d764795b3cf247a67aa5db59c42ef, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerRangeAttack
+    clip: {fileID: 8300000, guid: 8369b260e007d75478fcffe29add85be, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerClearScreen
+    clip: {fileID: 8300000, guid: 6aa30d23bb9d533478476bb0ab27aa42, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDie
+    clip: {fileID: 8300000, guid: 975d78f0e30855242a223b289f726c2c, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
