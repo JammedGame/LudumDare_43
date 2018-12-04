@@ -29,7 +29,7 @@ public class BackgroundScroll : MonoBehaviour {
 	void Update () {
 		for (int i = 1; i < rectTransforms.Length; i++) {
 			Vector3 _new = rectTransforms[i].position;
-			_new.y = (follow.transform.position.y - y[i]) * 0.5f;
+			_new.y = (follow.transform.position.y - y[i]) * 1f;
 			rectTransforms[i].position = _new;
 		}
 

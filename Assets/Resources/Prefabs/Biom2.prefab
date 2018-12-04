@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4857299622470794}
-  - component: {fileID: 61783170855426486}
   - component: {fileID: 114181226061740522}
+  - component: {fileID: 68891058282145858}
   m_Layer: 0
   m_Name: Biom2
   m_TagString: Untagged
@@ -35,14 +35,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1297186398953526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 391, y: 112, z: 68.117035}
+  m_LocalPosition: {x: 188, y: 79.6, z: 68.117035}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61783170855426486
-BoxCollider2D:
+--- !u!68 &68891058282145858
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -53,19 +53,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2560482}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 22.385044}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.878479, y: -5.467125}
+  - {x: -0.5881195, y: 6.2008057}
 --- !u!114 &114181226061740522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,6 +69,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb50a012c6c6a54fa7c3172683a8963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prevBiom: 2
-  biom: 2
+  prevBiom: 0
+  biom: 1
   background: {fileID: 0}
