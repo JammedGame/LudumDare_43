@@ -424,6 +424,7 @@ MonoBehaviour:
   boxColliderTiles: {fileID: 0}
   edgeColliderWallEnemy: {fileID: 0}
   animator: {fileID: 95507425579585762}
+  inRangeOfPlayer: 0
   attackSpeed: 0.9
   dealDamage: 15
 --- !u!114 &114929955957004992
@@ -438,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 114160010595585424}
+  updateHealthText: {fileID: 0}
   startingHealth: 100
   currentHealth: 100
   isDead: 0
