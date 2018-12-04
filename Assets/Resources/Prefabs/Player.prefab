@@ -358,8 +358,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388267117388712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.56, y: -1.86, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -17.65, y: -3.31, z: -0.2}
+  m_LocalScale: {x: 1.0084357, y: 1.03, z: 1}
   m_Children:
   - {fileID: 224073742005448308}
   - {fileID: 4806424806419576}
@@ -626,7 +626,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 52%
+  m_Text: 100%
 --- !u!114 &114305696726973970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -966,16 +966,16 @@ MonoBehaviour:
   jumpForce: 700
   moveSpeed: 5
   fireSpeed: 600
-  canFire: 1
-  canClearScreen: 1
-  canGlide: 1
+  canFire: 0
+  canClearScreen: 0
+  canGlide: 0
   doubleJumpCost: 3.5
   glideCostPerSecond: 2
   rangeAttackCost: 24
   clearScreenCost: 49
   clearScreenCanvas: {fileID: 0}
   firePosition: {fileID: 1740610145342114}
-  jumpsAllowed: 2
+  jumpsAllowed: 1
   animator: {fileID: 95665092581036870}
   jumpCount: 0
   attackSpeed: 1
@@ -1312,7 +1312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 14.25, y: 17.75499}
+  m_AnchoredPosition: {x: 30, y: 20}
   m_SizeDelta: {x: 220.75, y: 34.49}
   m_Pivot: {x: 0, y: 0}
 --- !u!224 &224368893614522578
