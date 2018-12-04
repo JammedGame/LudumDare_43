@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour {
 
 	public Slider healthbar;
+	public Text updateHealthText;
     public float startingHealth = 100;
 	public float currentHealth;
 	public bool isDead;
@@ -100,5 +101,8 @@ public class Health : MonoBehaviour {
 
 	void UpdateHealthbar() {
 		healthbar.value = currentHealth / startingHealth;
+		if (updateHealthText) {
+			updateHealthText.text = (int)(healthbar.value * 100) + "%";
+		}
 	}
 }

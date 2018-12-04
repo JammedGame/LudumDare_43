@@ -4512,6 +4512,26 @@ Prefab:
       propertyPath: jumpsAllowed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224426119102305418, guid: 902b76026feefcc4a9c15bbeb93301db,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224426119102305418, guid: 902b76026feefcc4a9c15bbeb93301db,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224188186293015732, guid: 902b76026feefcc4a9c15bbeb93301db,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 224188186293015732, guid: 902b76026feefcc4a9c15bbeb93301db,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -9.26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902b76026feefcc4a9c15bbeb93301db, type: 2}
   m_IsPrefabAsset: 0

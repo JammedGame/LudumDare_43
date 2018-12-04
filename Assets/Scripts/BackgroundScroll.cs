@@ -38,9 +38,7 @@ public class BackgroundScroll : MonoBehaviour {
 	private void FixedUpdate() {
 		if (startTranstion) {
 			timeToFade -= Time.deltaTime;
-			Image[] images = GetComponentsInChildren<Image>();
 			Image biom = GetComponentsInChildren<Image>()[currentBiomIndex];
-			Debug.Log(biom.color);
 			Color temp_biom_color = biom.color;
 			temp_biom_color.a = timeToFade;
 			biom.color = temp_biom_color;
