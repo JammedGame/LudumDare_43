@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour {
     // Skill costs
     public float doubleJumpCost = 3.5f;
     public float glideCostPerSecond = 2f;
-    public float rangeAttackCost = 24f;
-    public float clearScreenCost = 49f;
+    public float rangeAttackCost = 25f;
+    public float clearScreenCost = 50f;
 
     public GameObject clearScreenCanvas;
     private float clearScreenTimeout = 0f;
