@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
 
 	public Animator animator;
 
-	private bool inRangeOfPlayer;
+	public bool inRangeOfPlayer;
 	private Health playerHealth;
 	private bool startAttack = false;
 
@@ -73,6 +73,7 @@ public class Enemy : MonoBehaviour {
 			}
 		} else {
 			moveSpeed = defaultMoveSpeed;
+			inRangeOfPlayer = false;
 		}
 		doFlip = (
 			walkingTiles == 0 || (!found_player && (
