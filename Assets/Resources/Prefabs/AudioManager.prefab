@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1824129944460572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -16.692268, y: 2.1145234, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,6 +90,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerDie
     clip: {fileID: 8300000, guid: 975d78f0e30855242a223b289f726c2c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerGlide
+    clip: {fileID: 8300000, guid: 76b9c58702d16bb43b4df98fb9580283, type: 3}
     volume: 1
     pitch: 1
     loop: 0

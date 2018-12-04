@@ -156,9 +156,11 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetBool("Glide", true);
             rb.gravityScale = 0.3f;
             TakeDamage(glideCostPerSecond * Time.deltaTime);
+            FindObjectOfType<AudioManager>().PlayContinuous("PlayerGlide");
         } else {
             rb.gravityScale = 3;
             animator.SetBool("Glide", false);
+            FindObjectOfType<AudioManager>().Stop("PlayerGlide");
         }
 
         if (clearScreenTimeout > 0) {
