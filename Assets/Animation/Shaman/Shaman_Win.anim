@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Shaman_Idle
+  m_Name: Shaman_Win
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,18 +19,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: bc9c628a3d5efca48b37d96ad7577bd7, type: 3}
-    - time: 0.125
-      value: {fileID: 21300000, guid: bc9c628a3d5efca48b37d96ad7577bd7, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: bc9c628a3d5efca48b37d96ad7577bd7, type: 3}
-    - time: 0.375
-      value: {fileID: 21300000, guid: 1bc41dc87d67f12448973785ab702e24, type: 3}
+      value: {fileID: 21300000, guid: 9ae72e4e1394b7e48817e412658d5310, type: 3}
+    - time: 0.71666664
+      value: {fileID: 21300000, guid: 9ae72e4e1394b7e48817e412658d5310, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 8
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -45,16 +41,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: bc9c628a3d5efca48b37d96ad7577bd7, type: 3}
-    - {fileID: 21300000, guid: bc9c628a3d5efca48b37d96ad7577bd7, type: 3}
-    - {fileID: 21300000, guid: bc9c628a3d5efca48b37d96ad7577bd7, type: 3}
-    - {fileID: 21300000, guid: 1bc41dc87d67f12448973785ab702e24, type: 3}
+    - {fileID: 21300000, guid: 9ae72e4e1394b7e48817e412658d5310, type: 3}
+    - {fileID: 21300000, guid: 9ae72e4e1394b7e48817e412658d5310, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.7333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
