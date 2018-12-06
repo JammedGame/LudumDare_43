@@ -54,7 +54,7 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: d2b67c7eda40a4e4895d1ad51c90f91f, type: 3}
-    volume: 0.3
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -96,6 +96,36 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerGlide
     clip: {fileID: 8300000, guid: 76b9c58702d16bb43b4df98fb9580283, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerWalk
+    clip: {fileID: 8300000, guid: 4a6205c4b28972440b3d580389dc2fe8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: bc90274bf60b86e4a84a3f0634725fbc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FountainActive
+    clip: {fileID: 8300000, guid: f61ae32f00fc486488b8310048287327, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: PlayerLand
+    clip: {fileID: 8300000, guid: 7b6047a9b16b85644829b5816d846a10, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SkeletonHiss
+    clip: {fileID: 8300000, guid: 7a55108f004b53a4fbfed6241c68e55d, type: 3}
     volume: 1
     pitch: 1
     loop: 0

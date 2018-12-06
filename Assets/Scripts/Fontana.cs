@@ -23,6 +23,7 @@ public class Fontana : MonoBehaviour {
         {
            
             player = collider.gameObject;
+            FindObjectOfType<AudioManager>().PlayContinuous("FountainActive");
          
         }
     }
@@ -32,7 +33,7 @@ public class Fontana : MonoBehaviour {
         if (collider.gameObject.tag == "Player")
         {
             player = null;
-         
+            FindObjectOfType<AudioManager>().Stop("FountainActive");         
         }
     }
 

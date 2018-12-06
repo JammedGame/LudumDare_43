@@ -168,7 +168,11 @@ public class PlayerMovement : MonoBehaviour {
         } else {
             clearScreenCanvas.SetActive(false);
         }
-        
+        if (dirX == 0f || isJumping || glide) {
+            FindObjectOfType<AudioManager>().Stop("PlayerWalk");
+        } else {
+            FindObjectOfType<AudioManager>().PlayContinuous("PlayerWalk");
+        }
         rb.velocity = new Vector2(dirX, rb.velocity.y);
 
 
@@ -215,6 +219,7 @@ public class PlayerMovement : MonoBehaviour {
     void Jump() {
         rb.velocity = new Vector2(rb.velocity.x, 0f); 
         rb.AddForce(Vector2.up * jumpForce);
+        FindObjectOfType<AudioManager>().Play("PlayerJump");
         if (jumpCount == 2) TakeDamage(doubleJumpCost);
     }
 
@@ -226,7 +231,10 @@ public class PlayerMovement : MonoBehaviour {
 		filter.useLayerMask = true;
 		Collider2D[] resultsBoxCollider =  new Collider2D[1];
 		int tiles = boxCollider.OverlapCollider(filter, resultsBoxCollider);
-        if (tiles > 0) jumpCount = 0;
+        if (tiles > 0) {
+            jumpCount = 0;
+            FindObjectOfType<AudioManager>().Play("PlayerLand");
+        }
 	}
 
     void TakeDamage(float damageAmount) {
